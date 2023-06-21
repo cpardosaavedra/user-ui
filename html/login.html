@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/login.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div id="contenedor">
+        <table>
+            <tr>
+                <td>
+                    <label>usuario</label>
+                </td>
+                <td>
+                    <input id="userNameId" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>password</label>
+                </td>
+                <td>
+                    <input id="passwordId" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button>recuperar contraseña</label>
+                </td>
+                <td>
+                    <button onclick="doLogin()">log in</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="error">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
