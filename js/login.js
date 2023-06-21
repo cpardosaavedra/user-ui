@@ -39,10 +39,32 @@ function isInputDataValid(userName, password) {
 }
 
 function continueLogin(userName, password) {
+
+    var errorDiv = document.getElementById("error");
     //fetch a la api de login
     var loginRequest = buildLoginRequest(userName, password);
 
-    console.log(loginRequest);
+    const url = 'http://localhost:8080/login';
+
+    fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(loginRequest)
+    })
+    .then(response => response.json())
+    .then(responseData => {
+        console.log('Respuesta:', responseData);
+
+        errorDiv.innerHTML = "<p style=\"color: blue;\">" + JSON.stringify(responseData) + "</p>";
+        // Aquí puedes realizar acciones con la respuesta JSON recibida
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        errorDiv.innerHTML = "<p style=\"color: red;\">" + error + "</p>";
+        // Aquí puedes manejar cualquier error ocurrido durante la solicitud
+    });
 }
 
 function buildLoginRequest(userName, password){
