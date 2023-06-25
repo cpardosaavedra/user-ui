@@ -44,8 +44,10 @@ function continueLogin(userName, password) {
     //fetch a la api de login
     var loginRequest = buildLoginRequest(userName, password);
 
+    //definiendo url del endpoint
     const url = 'http://localhost:8080/login';
 
+    //aqui estámos haciendo el llamado
     fetch(url, {
     method: 'POST',
     headers: {
@@ -61,8 +63,8 @@ function continueLogin(userName, password) {
         // Aquí puedes realizar acciones con la respuesta JSON recibida
     })
     .catch(error => {
-        console.error('Error:', error);
-        errorDiv.innerHTML = "<p style=\"color: red;\">" + error + "</p>";
+        console.log('Error al llamar al login:', error);
+        errorDiv.innerHTML = "<p style=\"color: red;\">problemas al inciar sesión, intente mas tarde</p>";
         // Aquí puedes manejar cualquier error ocurrido durante la solicitud
     });
 }
