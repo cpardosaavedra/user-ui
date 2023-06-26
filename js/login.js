@@ -34,8 +34,7 @@ function isInputDataValid(userName, password) {
         return false;
     }
 
-    console.log("end login input validation")
-
+    console.log("end login input validation");
 }
 
 function continueLogin(userName, password) {
