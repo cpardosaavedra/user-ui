@@ -1,15 +1,16 @@
 function regUser(){
     let name = document.getElementById("name").value;
     let lastName = document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
     let dni = document.getElementById("dni").value;
     let address = document.getElementById("address").value;
     let password = document.getElementById("password").value;
     let confirmPass = document.getElementById("confirmPass").value;
 
-    if (isInputDataValid(name,lastName,dni,address, password,confirmPass)) {
+    if (isInputDataValid(name,lastName,email,dni,address, password,confirmPass)) {
         
         console.log("contraseña validada con exito!!");
-        userCreate(name,lastName,dni,address, password,confirmPass);
+        userCreate(name,lastName,email,dni,address, password,confirmPass);
     } else {
         
         console.log("contraseña validada con exito!!");
@@ -17,16 +18,19 @@ function regUser(){
 }
 
 
-function  isInputDataValid(Name,lastName,dni,address, password,confirmPass) {
+function  isInputDataValid(name,lastName,email,dni,address, password,confirmPass) {
     console.log("starting createUser input validation");
 
     var errorDiv = document.getElementById("error");
     var errorDetails = "";
 
-        if (Name == "") {
+        if (name == "") {
             errorDetails += "<p style=\"color: red;\">ingrese un Usuario válido</p>";
         }
         if (lastName == "") {
+            errorDetails += "<p style=\"color: red;\">ingrese un Apellido válido</p>";
+        }
+        if (email == "") {
             errorDetails += "<p style=\"color: red;\">ingrese un Apellido válido</p>";
         }
         if (dni == "") {
@@ -58,11 +62,11 @@ function  isInputDataValid(Name,lastName,dni,address, password,confirmPass) {
     console.log("end createuser input validation");
 }
 
-function userCreate(name,lastName,dni,address,password,confirmPass) {
+function userCreate(name,lastName,email,dni,address,password,confirmPass) {
 
     var errorDiv = document.getElementById("error");
     //fetch a la api de login
-    var createUserRequest = buildUserCreate(name,lastName,dni,address,password,confirmPass);
+    var createUserRequest = buildUserCreate(name,lastName,email,dni,address,password,confirmPass);
 
     //definiendo url del endpoint
     const url = 'http://localhost:8080/createUser';
@@ -88,11 +92,12 @@ function userCreate(name,lastName,dni,address,password,confirmPass) {
         // Aquí puedes manejar cualquier error ocurrido durante la solicitud
     });
 }
-function buildUserCreate(Name,lastName,dni,address,password,confirmPass){
+function buildUserCreate(name,lastName,email,dni,address,password,confirmPass){
     let uCreateRequest = new Object();
 
-    uCreateRequest.Name = Name;
+    uCreateRequest.name = name;
     uCreateRequest.lastName = lastName;
+    uCreateRequest.email = email;
     uCreateRequest.dni = dni;
     uCreateRequest.address = address;
     uCreateRequest.password = password;
