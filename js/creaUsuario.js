@@ -1,19 +1,26 @@
-function regUser(){
-    let name = document.getElementById("name").value;
-    let lastName = document.getElementById("lastName").value;
-    let email = document.getElementById("email").value;
-    let dni = document.getElementById("dni").value;
-    let address = document.getElementById("address").value;
-    let password = document.getElementById("password").value;
-    let confirmPass = document.getElementById("confirmPass").value;
+var errorDiv = document.getElementById("error");
 
-    if (isInputDataValid(name,lastName,email,dni,address, password,confirmPass)) {
-        
-        console.log("contraseña validada con exito!!");
-        userCreate(name,lastName,email,dni,address, password,confirmPass);
-    } else {
-        
-        console.log("contraseña validada con exito!!");
+function regUser(){
+    try {
+        let name = document.getElementById("name").value;
+        let lastName = document.getElementById("lastName").value;
+        let email = document.getElementById("email").value;
+        let dni = document.getElementById("dni").value;
+        let address = document.getElementById("address").value;
+        let password = document.getElementById("password").value;
+        let confirmPass = document.getElementById("confirmPass").value;
+
+        if (isInputDataValid(name,lastName,email,dni,address, password,confirmPass)) {
+            
+            console.log("contraseña validada con exito!!");
+            userCreate(name,lastName,email,dni,address, password,confirmPass);
+            document.getElementById("error").innerHTML = "<p style=\"color: blue;\">usuario creado correctamente!!</p>";
+        } else {
+            
+            console.log("contraseña validada con exito!!");
+        }
+    } catch (e) {
+        document.getElementById("error").innerHTML = "<p style=\"color: red;\">problemas al Crear Usuario, intente mas tarde</p>";
     }
 }
 
@@ -21,7 +28,6 @@ function regUser(){
 function  isInputDataValid(name,lastName,email,dni,address, password,confirmPass) {
     console.log("starting createUser input validation");
 
-    var errorDiv = document.getElementById("error");
     var errorDetails = "";
 
         if (name == "") {
@@ -49,7 +55,7 @@ function  isInputDataValid(name,lastName,email,dni,address, password,confirmPass
             errorDetails += "<p style=\"color: red;\">los password no concuerdan!</p>";
         }
     
-    errorDiv.innerHTML = errorDetails;
+    document.getElementById("error").innerHTML = errorDetails;
 
     if (errorDetails == "") {
         //refiere a que no hay problema en la validación de la line 19 a las 25.
@@ -58,13 +64,9 @@ function  isInputDataValid(name,lastName,email,dni,address, password,confirmPass
         // uno o mas valores es incorrecto.
         return false;
     }
-
-    console.log("end createuser input validation");
 }
 
 function userCreate(name,lastName,email,dni,address,password,confirmPass) {
-
-    var errorDiv = document.getElementById("error");
     //fetch a la api de login
     var createUserRequest = buildUserCreate(name,lastName,email,dni,address,password,confirmPass);
 
@@ -79,16 +81,20 @@ function userCreate(name,lastName,email,dni,address,password,confirmPass) {
     },
     body: JSON.stringify(createUserRequest)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        return response.json();
+      })
     .then(responseData => {
-        console.log('Respuesta:', responseData);
-
-        errorDiv.innerHTML = "<p style=\"color: blue;\">" + JSON.stringify(responseData) + "</p>";
+        console.log('Respuesta:', JSON.stringify(responseData));
         // Aquí puedes realizar acciones con la respuesta JSON recibida
     })
     .catch(error => {
         console.log('Error al llamar al login:', error);
-        errorDiv.innerHTML = "<p style=\"color: red;\">problemas al Crear Usuario, intente mas tarde</p>";
+
+        throw new Error('Error en la solicitud');
         // Aquí puedes manejar cualquier error ocurrido durante la solicitud
     });
 }
