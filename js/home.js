@@ -1,11 +1,21 @@
-function searchUser(){
+document.addEventListener('DOMContentLoaded', function() {
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+  let token = urlParams.get("token");
 
 fetch('http://localhost:8080/getUserData', {
-  method: 'GET'
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'session-token': token
+  }
 })
   .then(response => response.json())
   .then(data => {
         // Obtener referencia a la tabla
+
+    document.getElementById("nombre").value = data.name;
    console.log(data)
     const table = document.getElementById('data-table');
 
@@ -16,6 +26,7 @@ fetch('http://localhost:8080/getUserData', {
     data.forEach(user => {
       // Crear una nueva fila en la tabla
       const newRow = table.insertRow();
+    
 
       // Insertar celdas en la fila con los datos correspondientes
       newRow.insertCell().textContent = user.nombre;
@@ -31,4 +42,4 @@ fetch('http://localhost:8080/getUserData', {
     console.error('Error:', error);
     console.log("¡No estás conectado al endpoint!");
   });
-}
+});
