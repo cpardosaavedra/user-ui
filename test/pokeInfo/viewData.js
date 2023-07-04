@@ -1,4 +1,4 @@
-fetch ('https://pokeapi.co/api/v2/pokemon/charmander',{
+fetch ('https://pokeapi.co/api/v2/pokemon/pikachu',{
     method: 'GET',
     headers: {
         'content-Type':'application/json',
