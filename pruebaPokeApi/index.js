@@ -23,6 +23,3 @@ fetch ('https://pokeapi.co/api/v2/pokemon/charmander',{
     console.error('Error:', error.message);
 })
 
-// de apoco voy aprendiendo a usar fetch :D 
-
-//unos ejemplos mas y aprendere bien :D 
