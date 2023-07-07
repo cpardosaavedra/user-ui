@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/home.css">
+  <script src="../js/home.js"></script>
+  <title>Menú de navegación</title>
+</head>
+<body>
+  <div id="session-expired-overlay">
+    <div id="session-expired-message">
+      <p id="error-message"></p>
+      <button onclick="window.location.href = 'login.html'">Volver al login</button>
+    </div>
+  </div>
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">Mi Sitio Web</a>
+    <ul class="navbar-links">
+      <li class="navbar-link-item"><a href="#">Inicio</a></li>
+      <li class="navbar-link-item"><a href="#">Acerca de</a></li>
+      <li class="navbar-link-item"><a href="#">Contacto</a></li>
+      <li class="navbar-link-item"><a href="#">Cerrar sesión</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <input class="search-input" type="text" placeholder="Ingrese un usuario" id="dataSearch">
+    <button class="search-button" onclick="searchUser()">Buscar usuario</button>
+  </div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Dato</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nombre:</td>
+        <td id="nombre"></td>
+      </tr>
+      <tr>
+        <td>Apellido:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>RUT:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Dirección:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Nickname:</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
