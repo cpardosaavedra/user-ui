@@ -11,11 +11,14 @@ function getData() {
       })
       .then(data => {
         var pokemonInfo = document.getElementById("pokemonInfo");
+        var recibeImg = data.sprites.front_default;     
+        
         pokemonInfo.innerHTML = `
           <p>Nombre: ${data.name}</p>
           <p>Tipo: ${data.types[0].type.name}</p>
           <p>Altura: ${data.height}</p>
           <p>Peso: ${data.weight}</p>
+          <img class="imagen" src="${recibeImg}"> </img>
         `;
       })
       .catch(error => {
@@ -28,6 +31,7 @@ function getData() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(data => {
+      
       var combobox = document.getElementById("pokemonSelect");
       var results = data.results;
   
@@ -35,10 +39,10 @@ function getData() {
         var option = document.createElement("option");
         option.text = pokemon.name;
         option.value = pokemon.name;
-        combobox.appendChild(option);
+        combobox.appendChild(option);        
       });
     })
     .catch(error => {
       console.error('Error:', error);
     });
-  
+   

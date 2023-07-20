@@ -1,0 +1,15 @@
+.container{
+    /* background: gray; */
+    height: 200px;
+    width: 200px;
+}
+
+
+.imagen {
+    
+    width: 400px;
+    height: 400px;
+    /* margin-left: 20px; */
+    background-image: url(https://img.freepik.com/iconos-gratis/pokebola_318-331350.jpg);
+    background-size: cover;
+}

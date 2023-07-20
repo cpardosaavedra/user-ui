@@ -1,6 +1,6 @@
 function getData() {
     var pokeName = document.getElementById("pokemonName").value;
-    
+
 
     console.log("el pokemon seleccionado: " + pokeName);
 
@@ -15,10 +15,11 @@ function getData() {
 .then(response => {
     if(!response.ok) {
         throw new Error('No se puedo obtener la información del pokémon');        
-       }   return response.json()
+       } return response.json()
     
 })
-.then(data =>{
+.then(data =>{   
+    
     console.log('Información del pokémon: ',data);
     console.log('Nombre del Pokémon: ', data.name);
     console.log('tipo del Pokémon: ', data.types[0].type.name);
@@ -31,7 +32,9 @@ if(pokeName.trim() === data.name.trim()){
     document.getElementById("namepoke").innerHTML = data.name;
     document.getElementById("typePoke").innerHTML = data.types[0].type.name;
     document.getElementById("height").innerHTML = data.height;
-    document.getElementById("weight").innerHTML = data.weight;     
+    document.getElementById("weight").innerHTML = data.weight;      
+    
+
     //si no se encuentra, mostrar un mensaje en pantalla diciendo: pokemon "pokemon" no encontrado.
 }else{
     alert(pokeName + ' Pokémon no encontrado') ;    
