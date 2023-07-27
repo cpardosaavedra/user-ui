@@ -97,4 +97,3 @@ function mostrarMensaje(mensaje) {
     .catch(error => {
       console.error('Error:', error);
     });
-    

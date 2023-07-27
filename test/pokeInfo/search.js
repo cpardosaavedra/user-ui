@@ -1,7 +1,6 @@
 function getData() {
     var pokeName = document.getElementById("pokemonName").value;
 
-
     console.log("el pokemon seleccionado: " + pokeName);
 
     fetch ('https://pokeapi.co/api/v2/pokemon/' + pokeName,{
@@ -20,6 +19,7 @@ function getData() {
 })
 .then(data =>{   
     
+
     console.log('Información del pokémon: ',data);
     console.log('Nombre del Pokémon: ', data.name);
     console.log('tipo del Pokémon: ', data.types[0].type.name);
@@ -34,6 +34,7 @@ if(pokeName.trim() === data.name.trim()){
     document.getElementById("height").innerHTML = data.height;
     document.getElementById("weight").innerHTML = data.weight;      
     
+
 
     //si no se encuentra, mostrar un mensaje en pantalla diciendo: pokemon "pokemon" no encontrado.
 }else{
