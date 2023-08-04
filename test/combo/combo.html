@@ -8,8 +8,24 @@
 </head>
 <body>
     <div>
-        <select id="tipo" onchange="getPokemon()"></select>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" onchange="getPokemon()">
+            <!-- Las opciones de tipos de Pokémon se llenarán dinámicamente al cargar la página -->
+        </select>
+    
+        <label for="pokemon">Pokémon:</label>
+        <select id="pokemon" onchange="getEvolutions()">
+            <!-- Las opciones de Pokémon se llenarán dinámicamente según el tipo seleccionado -->
+        </select>
+    
+        <label for="evo">Evoluciones:</label>
+        <select id="evo">
+            <!-- Las opciones de evoluciones se llenarán dinámicamente según el Pokémon seleccionado -->
+        </select>
+        <!-- <select id="tipo" onchange="getPokemon()"></select>
         <select id="pokemon"></select>
+        <select id="evo"></select> -->
     </div>
 </body>
 </html>
