@@ -112,35 +112,18 @@ let evolution = [
         "tipo": "Eléctrico",
         "evoluciones": [
             {
-                "name": "Pichu",
-                "tipo": "Eléctrico",
-                "nivel": "Nivel de amistad"
-            },
-            {
-                "name": "Pikachu",
-                "tipo": "Eléctrico",
-                "nivel": "Piedra trueno"
-            },
-            {
-                "name": "Raichu",
-                "tipo": "Eléctrico",
-                "nivel": "Piedra trueno"
-            }
+                "name": ["pichu",
+                "pikachu",
+                "raichu"],
+            },            
         ]
     },{
     "nombre": "voltorb",
     "tipo": "Eléctrico",
     "evoluciones": [
         {
-            "name": "voltorb",
-            "tipo": "Eléctrico",
-            "nivel": "20"
-        },
-        {
-            "name": "electrode",
-            "tipo": "Eléctrico",
-            "nivel": "no hay mas evoluciones"
-        },        
+            "name": ["voltorb","electrode"],
+        },               
     ]
 },
 {
@@ -148,20 +131,12 @@ let evolution = [
     "tipo": "Eléctrico",
     "evoluciones": [
         {
-            "name": "magnamite",
-            "tipo": "Eléctrico",
-            "nivel": "30"
-        },
-        {
-            "name": "Magneton",
-            "tipo": "Eléctrico",
-            "nivel": "campo Magnetico lvl 30"
-        },   
-        {
-            "name": "magnezone",
-            "tipo": "Eléctrico",
-            "nivel": "no hay mas evoluciones"
-        },      
+            "name":[
+                "magnamite",
+                "magenton",
+                "magnezone"
+            ],           
+        },       
     ]
 },
 {
@@ -169,9 +144,7 @@ let evolution = [
     "tipo": "Eléctrico",
     "evoluciones": [
         {
-            "name": "zapdos",
-            "tipo": "Eléctrico",
-            "nivel": "no tiene evolucion"
+            "name": "zapdos",           
         },
 ]
 }
@@ -224,27 +197,39 @@ let filterEvo = [];
         // Función para filtrar y llenar el combo de evoluciones según el Pokémon seleccionado
         function getEvolutions() {
             let pokeEvo = document.getElementById('pokemon');
-            let evoSelected = pokeEvo.options[pokeEvo.selectedIndex].text;
+            let evoSelected = pokeEvo.options[pokeEvo.selectedIndex].text.toLowerCase();
 
             filterEvo = [];
 
             for (var i = 0; i < evolution.length; i++) {
                 let evolutionSelected = evolution[i];
 
-                if (evoSelected == evolutionSelected.nombre) {
-                    filterEvo.push(evolutionSelected);
-                }
+                evolutionSelected.evoluciones.forEach(function(evolution) {
+                    if (evolution.name.includes(evoSelected)) { // Comprobar si el Pokémon seleccionado está en las evoluciones
+                        filterEvo.push(evolution.name);
+                    }
+                });
             }
             let evoCombo = document.getElementById("evo")
             evoCombo.innerHTML = ""
 
             filterEvo.forEach(function(item) {
-                var option2 = document.createElement("option");
-                var option3 = document.createElement("option");
-                option2.text = item.evoluciones[0].name;// Mostramos el nombre de la evolución
-                evoCombo.appendChild(option2);
+                var option = document.createElement("option");
+                option.text = item;
+                evoCombo.appendChild(option);
             });
         }
+
+
+
+
+
+
+
+
+
+
+
 // // Función para llenar el combo de tipos de pokemon al cargar la página
 // function llenarCombo() {
 //     var tipoCombo = document.getElementById("tipo");
