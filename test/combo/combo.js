@@ -24,127 +24,121 @@ let pokemon = [
     {
         "tipo": 1,
         "nombre": "pikachu",
-        "evoname": "pikachu"
+        "idPoke": 1       
     },
     {
         "tipo": 1,
         "nombre": "voltorb",
-        "evoname": "voltorb"
+        "idPoke": 2  
+       
     },
     {
         "tipo": 1,
-        "nombre": "magnamite", 
-        "evoname": "magnamite"
+        "nombre": "magnamite",         
+        "idPoke": 3
     },
     {
         "tipo": 1,
-        "nombre": "zapdos",
-        "evoname": "NONE!!"
+        "nombre": "zapdos",        
+        "idPoke": 4
     },
 
     {
         "tipo": 2,
-        "nombre": "sandshrew",
-        "evoname": "sandshrew"
+        "nombre": "sandshrew",       
     },
     {
         "tipo": 2,
         "nombre": "rhyhorn",
-        "evoname": "rhyhorn"
+       
     },
     {
         "tipo": 2,
         "nombre": "diglet",
-        "evoname": "diglet"
+        
     },
     {
         "tipo": 2,
-        "nombre": "cubone" ,
-        "evoname": "cubone"
+        "nombre": "cubone" ,        
     },
 
     {
         "tipo": 3,
-        "nombre": "vulpix",
-        "evoname": "vulpix"
+        "nombre": "vulpix",        
     },
     {
         "tipo": 3,
-        "nombre": "growlithe", 
-        "evoname": "growlithe"
+        "nombre": "growlithe",         
     },
     {
         "tipo": 3,
-        "nombre": "charmander" ,
-        "evoname": "vulpix"
+        "nombre": "charmander" ,       
     },
     {
         "tipo": 3,
-        "nombre": "torchic", 
-        "evoname": "charmande"
+        "nombre": "torchic",         
     },
     
     {
         "tipo": 4,
-        "nombre": "squirtle", 
-        "evoname": "squirtle"
+        "nombre": "squirtle",         
     },
     {
         "tipo": 4,
-        "nombre": "totodile", 
-        "evoname": "totodile"
+        "nombre": "totodile",         
     },
     {
         "tipo": 4,
-        "nombre": "magikarp",
-        "evoname": "magikarp"
+        "nombre": "magikarp",       
     },
     {
         "tipo": 4,
-        "nombre": "psyduck",
-        "evoname": "psyduck"
+        "nombre": "psyduck",       
     },
 ]
 
 let evolution = [
     {
-        "nombre": "Pikachu",
-        "tipo": "Eléctrico",
+        "id": 1,
+        "nombre": "Pikachu",               
         "evoluciones": [
             {
-                "name": ["pichu",
-                "pikachu",
-                "raichu"],
+              "nombre": "Raichu",
+              "etapa": "Primera",
+              "requisitos": "Usar una Piedra Trueno"
             },            
         ]
     },{
-    "nombre": "voltorb",
-    "tipo": "Eléctrico",
-    "evoluciones": [
+        "id": 2,
+        "nombre": "voltorb",        
+        "evoluciones": [
         {
-            "name": ["voltorb","electrode"],
+            "nombre": "electrode",
+            "etapa": "Primera",
+            "requisitos": "Nivel 22"
         },               
     ]
 },
 {
-    "nombre": "magnamite",
-    "tipo": "Eléctrico",
+    "nombre": "magnamite",   
     "evoluciones": [
         {
-            "name":[
-                "magnamite",
-                "magenton",
-                "magnezone"
-            ],           
+            "nombre": "magnetone",
+            "etapa": "Primera",
+            "requisitos": "nivel 32"
+        }, 
+        {
+            "nombre": "magnezone",
+            "etapa": "Primera",
+            "requisitos": "evolucionar en zona magnetica"
         },       
     ]
 },
 {
-    "nombre": "zapdos",
-    "tipo": "Eléctrico",
+    "nombre": "zapdos",    
     "evoluciones": [
         {
-            "name": "zapdos",           
+            "nombre": "zapdos",           
         },
 ]
 }
@@ -163,11 +157,11 @@ let filterEvo = [];
                 tipoCombo.appendChild(option);
             });
 
-            getPokemon(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
+            getTipo(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
         }
 
         // Función para filtrar y llenar el combo de Pokémon según el tipo seleccionado
-        function getPokemon() {
+        function getTipo() {
             let tipoCombo = document.getElementById("tipo");
             let tipoSelected = tipoCombo.options[tipoCombo.selectedIndex];
 
@@ -181,7 +175,7 @@ let filterEvo = [];
                 }
             }
 
-            let pokemonCombo = document.getElementById("pokemon")
+            let pokemonCombo = document.getElementById("addpokemon")
             pokemonCombo.innerHTML = "";
 
             pokemonsFilter.forEach(function(item) {
@@ -189,106 +183,37 @@ let filterEvo = [];
                 option.text = item.nombre;
                 option.id = item.tipo;
                 pokemonCombo.appendChild(option);
-            });
+            });  
+            
+            
 
-            getEvolutions(); // Llenar el combo de evoluciones una vez que se han cargado los Pokémon
-        }
+            // Filtro de evoluciones 
+            let pokeEvolution = document.getElementById("addPokemon");
+            let typePokeEvo = pokeEvolution.options[pokeEvolution.selectedIndex];
 
-        // Función para filtrar y llenar el combo de evoluciones según el Pokémon seleccionado
-        function getEvolutions() {
-            let pokeEvo = document.getElementById('pokemon');
-            let evoSelected = pokeEvo.options[pokeEvo.selectedIndex].text.toLowerCase();
+            let filterEvolution = [];
 
-            filterEvo = [];
-
-            for (var i = 0; i < evolution.length; i++) {
+            for(var i = 0; i < evolution.length; i++){
                 let evolutionSelected = evolution[i];
 
-                evolutionSelected.evoluciones.forEach(function(evolution) {
-                    if (evolution.name.includes(evoSelected)) { // Comprobar si el Pokémon seleccionado está en las evoluciones
-                        filterEvo.push(evolution.name);
-                    }
-                });
+                if (typePokeEvo.idPoke[0] == evolutionSelected){                    
+                    filterEvolution.push(evolutionSelected)
+                    
+                }
+
             }
             let evoCombo = document.getElementById("evo")
-            evoCombo.innerHTML = ""
+            evoCombo.innerHTML = "";
 
-            filterEvo.forEach(function(item) {
+            filterEvolution.forEach(function(item) {
                 var option = document.createElement("option");
-                option.text = item;
+                var pokeBase = document.createElement("option");
+                pokeBase.text = item.nombre;
+                option.text = item.evoluciones[0].nombre; 
+               
+                evoCombo.appendChild(pokeBase);
                 evoCombo.appendChild(option);
             });
+
         }
-
-
-
-
-
-
-
-
-
-
-
-// // Función para llenar el combo de tipos de pokemon al cargar la página
-// function llenarCombo() {
-//     var tipoCombo = document.getElementById("tipo");
-
-//     tipo.forEach(function(item) {
-//         var option = document.createElement("option");
-//         option.text = item.value;
-//         option.id = item.id;
-//         tipoCombo.appendChild(option);
-//     });
-
-// }
-//  // Función para filtrar y llenar el combo de pokemons según el tipo seleccionado
-// function getPokemon() {
-//     let tipoCombo = document.getElementById("tipo");
-//     let tipoSelected = tipoCombo.options[tipoCombo.selectedIndex];
-
-//     let pokemonsFilter = new Array();
-
-//     for (var i = 0; pokemon.length > i; i++) {
-//         let pokemonSelected = pokemon[i];
-
-//         if (tipoSelected.id == pokemonSelected.tipo) {
-//             pokemonsFilter.push(pokemonSelected);
-//         }
-//     }
-
-//     let pokemonCombo = document.getElementById("pokemon")
-//     pokemonCombo.innerHTML = ""
-
-//     pokemonsFilter.forEach(function(item) {
-//         var option = document.createElement("option");
-//         option.text = item.nombre;
-//         option.id = item.tipo;
-//         pokemonCombo.appendChild(option);
-//     });
-
-// //Filtrado para las evoluciones 
-//     let pokeEvo = document.getElementById('pokemon');
-//     let evoSelected = pokeEvo.options[pokeEvo.selectedIndex];
-
-//     let filterEvo = new Array();
-
-//     for (var i = 0; evolution.length > i; i++) {
-//         let evolutionSelected = evolution[i];
-
-//         if (evoSelected.value == evolutionSelected.nombre) {
-//             filterEvo.push(evolutionSelected);
-//         }
-//     }
-//     let evoCombo = document.getElementById("evo")
-//    evoCombo.innerHTML = ""
-
-//    filterEvo.forEach(function(item) {
-//         var option2 = document.createElement("option");
-//         option2.text = item.evoluciones[0].nombre; // Mostramos el nombre de la evolución
-//         evoCombo.appendChild(option2);
-//     });
-    
-
-// }
 
