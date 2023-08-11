@@ -103,38 +103,35 @@ let evolution = [
         "nombre": "Pikachu",               
         "evoluciones": [
             {
-              "nombre": "Raichu",
-              "etapa": "Primera",
-              "requisitos": "Usar una Piedra Trueno"
-            },            
+                "nombre": "Pichu"
+            },
+            {
+                "nombre": "Raichu"
+            },         
         ]
     },{
         "id": 2,
         "nombre": "voltorb",        
         "evoluciones": [
         {
-            "nombre": "electrode",
-            "etapa": "Primera",
-            "requisitos": "Nivel 22"
+            "nombre": "electrode",            
         },               
     ]
 },
 {
+    "id": 3,
     "nombre": "magnamite",   
     "evoluciones": [
         {
-            "nombre": "magnetone",
-            "etapa": "Primera",
-            "requisitos": "nivel 32"
-        }, 
+            "nombre": "magnetone"
+        },
         {
-            "nombre": "magnezone",
-            "etapa": "Primera",
-            "requisitos": "evolucionar en zona magnetica"
-        },       
+            "nombre": "magnezone"
+        },             
     ]
 },
 {
+    "id": 4,
     "nombre": "zapdos",    
     "evoluciones": [
         {
@@ -186,34 +183,39 @@ let filterEvo = [];
             });  
             
             
-
-            // Filtro de evoluciones 
-            let pokeEvolution = document.getElementById("addPokemon");
-            let typePokeEvo = pokeEvolution.options[pokeEvolution.selectedIndex];
-
-            let filterEvolution = [];
-
-            for(var i = 0; i < evolution.length; i++){
-                let evolutionSelected = evolution[i];
-
-                if (typePokeEvo.idPoke[0] == evolutionSelected){                    
-                    filterEvolution.push(evolutionSelected)
-                    
-                }
-
-            }
-            let evoCombo = document.getElementById("evo")
-            evoCombo.innerHTML = "";
-
-            filterEvolution.forEach(function(item) {
-                var option = document.createElement("option");
-                var pokeBase = document.createElement("option");
-                pokeBase.text = item.nombre;
-                option.text = item.evoluciones[0].nombre; 
-               
-                evoCombo.appendChild(pokeBase);
-                evoCombo.appendChild(option);
-            });
-
+            getEvolution ()
+           
         }
 
+function getEvolution (){
+     // Filtro de evoluciones 
+     let getPokemon = document.getElementById("addpokemon");
+     let pokemonSet = getPokemon.options[getPokemon.selectedIndex];
+
+     let filterEvolution = [];
+
+     for(var i = 0; i < evolution.length; i++){
+         let evoList = evolution[i];
+
+         if (pokemonSet.id == evoList.id){                    
+             filterEvolution.push(evoList)
+             
+         }
+
+     }
+     
+     let evoCombo = document.getElementById("evo")
+     evoCombo.innerHTML = "";
+
+     filterEvolution.forEach(function(item) {
+        item.evoluciones.forEach(function(evo){
+            var option = document.createElement("option");            
+            option.text = evo.nombre; 
+           
+           
+            evoCombo.appendChild(option);
+        })
+         
+     });
+
+}
