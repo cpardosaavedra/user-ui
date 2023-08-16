@@ -24,23 +24,23 @@ let pokemon = [
     {
         "tipo": 1,
         "nombre": "pikachu",
-        "idPoke": 1       
+        "id": 1       
     },
     {
         "tipo": 1,
         "nombre": "voltorb",
-        "idPoke": 2  
+        "id": 2  
        
     },
     {
         "tipo": 1,
         "nombre": "magnamite",         
-        "idPoke": 3
+        "id": 3
     },
     {
         "tipo": 1,
         "nombre": "zapdos",        
-        "idPoke": 4
+        "id": 4
     },
 
     {
@@ -99,8 +99,7 @@ let pokemon = [
 
 let evolution = [
     {
-        "id": 1,
-        "nombre": "Pikachu",               
+        "id": 1,              
         "evoluciones": [
             {
                 "nombre": "Pichu"
@@ -110,8 +109,7 @@ let evolution = [
             },         
         ]
     },{
-        "id": 2,
-        "nombre": "voltorb",        
+        "id": 2,        
         "evoluciones": [
         {
             "nombre": "electrode",            
@@ -119,8 +117,7 @@ let evolution = [
     ]
 },
 {
-    "id": 3,
-    "nombre": "magnamite",   
+    "id": 3,    
     "evoluciones": [
         {
             "nombre": "magnetone"
@@ -131,8 +128,7 @@ let evolution = [
     ]
 },
 {
-    "id": 4,
-    "nombre": "zapdos",    
+    "id": 4,        
     "evoluciones": [
         {
             "nombre": "zapdos",           
@@ -178,7 +174,7 @@ let filterEvo = [];
             pokemonsFilter.forEach(function(item) {
                 var option = document.createElement("option");
                 option.text = item.nombre;
-                option.id = item.tipo;
+                option.id = item.id;
                 pokemonCombo.appendChild(option);
             });  
             
@@ -201,9 +197,8 @@ function getEvolution (){
              filterEvolution.push(evoList)
              
          }
-
-     }
-     
+         
+     }    
      let evoCombo = document.getElementById("evo")
      evoCombo.innerHTML = "";
 
@@ -211,6 +206,7 @@ function getEvolution (){
         item.evoluciones.forEach(function(evo){
             var option = document.createElement("option");            
             option.text = evo.nombre; 
+            option.id = evo.id;
            
            
             evoCombo.appendChild(option);
