@@ -45,55 +45,65 @@ let pokemon = [
 
     {
         "tipo": 2,
-        "nombre": "sandshrew",       
+        "nombre": "sandshrew",  
+        "id": 5     
     },
     {
         "tipo": 2,
         "nombre": "rhyhorn",
-       
+        "id": 6
     },
     {
         "tipo": 2,
         "nombre": "diglet",
-        
+        "id": 7
     },
     {
         "tipo": 2,
-        "nombre": "cubone" ,        
+        "nombre": "cubone" ,  
+        "id": 8      
     },
 
     {
         "tipo": 3,
-        "nombre": "vulpix",        
+        "nombre": "vulpix",   
+        "id": 9     
     },
     {
         "tipo": 3,
-        "nombre": "growlithe",         
+        "nombre": "growlithe",   
+        "id": 10      
     },
     {
         "tipo": 3,
-        "nombre": "charmander" ,       
+        "nombre": "charmander" ,  
+        "id": 11     
     },
     {
         "tipo": 3,
-        "nombre": "torchic",         
+        "nombre": "torchic",    
+        "id": 12     
     },
     
     {
         "tipo": 4,
-        "nombre": "squirtle",         
+        "nombre": "squirtle",  
+        "id": 13       
     },
     {
         "tipo": 4,
-        "nombre": "totodile",         
+        "nombre": "totodile",  
+        "id": 14       
     },
     {
         "tipo": 4,
-        "nombre": "magikarp",       
+        "nombre": "magikarp",  
+        "id": 15     
     },
     {
         "tipo": 4,
-        "nombre": "psyduck",       
+        "nombre": "psyduck",   
+        "id": 16    
     },
 ]
 
@@ -133,7 +143,121 @@ let evolution = [
         {
             "nombre": "zapdos",           
         },
-]
+    ]
+},{
+    "id": 5,
+    "evoluciones" : [
+        {
+            "nombre": "Sandslash"
+        }
+    ]
+},
+{
+    "id": 6,
+    "evoluciones" : [
+        {
+            "nombre": "Rydhon"
+        }
+    ]
+}
+,
+{
+    "id": 7,
+    "evoluciones" : [
+        {
+            "nombre": "Dugtrio"
+        }
+    ]
+},
+{
+    "id": 8,
+    "evoluciones" : [
+        {
+            "nombre": "Marowak"
+        },
+        {
+            "nombre": "Marowak-alola"
+        }
+    ]
+},
+{
+    "id": 9,
+    "evoluciones" : [
+        {
+            "nombre": "Ninetales"
+        },
+        {
+            "nombre": "Ninetales-Alola"
+        }
+    ]
+},
+{
+    "id": 10,
+    "evoluciones" : [
+        {
+            "nombre": "Arcanine"
+        }
+    ]
+},
+{
+    "id": 11,
+    "evoluciones" : [
+        {
+            "nombre": "Charmeleon"
+        },
+        {
+            "nombre": "Charizard"
+        }
+    ]
+},
+{
+    "id": 12,
+    "evoluciones" : [
+        {
+            "nombre": "Combusken"
+        },
+        {
+            "nombre": "Blaziken"
+        }
+    ]
+},
+{
+    "id": 13,
+    "evoluciones" : [
+        {
+            "nombre": "Wartortle"
+        },
+        {
+            "nombre": "Blastoise"
+        }
+    ]
+},
+{
+    "id": 14,
+    "evoluciones" : [
+        {
+            "nombre": "Croconaw"
+        },
+        {
+            "nombre": "Feraligart"
+        }
+    ]
+},
+{
+    "id": 15,
+    "evoluciones" : [
+        {
+            "nombre": "Gyarados"
+        }
+    ]
+},
+{
+    "id": 16,
+    "evoluciones" : [
+        {
+            "nombre": "Golduck"
+        }
+    ]
 }
 ];
 
