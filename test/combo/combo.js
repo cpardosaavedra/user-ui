@@ -261,6 +261,66 @@ let evolution = [
 }
 ];
 
+let atkPokemon = [
+    {
+        "id": 1,
+        "ataque": [
+            {
+                "nombre": "impactrueno"
+            },
+            {
+                "nombre": "atactrueno"
+            },
+            {
+                "nombre": "Rayo"
+            }
+        
+        ]
+    },
+    {
+        "id": 2,
+        "ataque" : [
+            {
+                "nombre" : "golpe roca",
+            },
+            {
+                "nombre" : "roca afilada",
+            },
+            {
+                "nombre" : "tormenta de arena"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "ataque" : [
+            {
+                "nombre" : "Lanza llamas",
+            },
+            {
+                "nombre" : "Giro fuego",
+            },
+            {
+                "nombre" : "tormenta de arena"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "ataque" : [
+            {
+                "nombre" : "Chorro de agua",
+            },
+            {
+                "nombre" : "pistola de agua",
+            },
+            {
+                "nombre" : "Hidrobomba"
+            }
+        ]
+    }
+]
+
 let filterEvo = [];
 
         // Función para llenar el combo de tipos de Pokémon al cargar la página
@@ -335,7 +395,35 @@ function getEvolution (){
            
             evoCombo.appendChild(option);
         })
-         
+        
      });
+     getAtk()
+}
 
+function getAtk(){
+    let typePoke  = document.getElementById("tipo");
+    let setPoke = typePoke.options[typePoke.selectedIndex];
+
+    let filterAtk = [];
+
+    for (var i = 0; i < atkPokemon.length; i++){
+        let atkList = atkPokemon[i];
+
+        if(setPoke.id == atkList.id ){
+            filterAtk.push(atkList)
+        }
+    }
+
+    let atkCombo = document.getElementById("atk")
+    atkCombo.innerHTML = "";
+
+    filterAtk.forEach(function(item){
+        item.ataque.forEach(function(nameAtk){
+            var atkOption = document.createElement("option");
+            atkOption.text = nameAtk.nombre;
+            atkOption.id = nameAtk.id; 
+            atkCombo.appendChild(atkOption);
+        })
+        
+    });
 }
