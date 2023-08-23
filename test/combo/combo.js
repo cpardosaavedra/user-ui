@@ -29,8 +29,7 @@ let pokemon = [
     {
         "tipo": 1,
         "nombre": "voltorb",
-        "id": 2  
-       
+        "id": 2         
     },
     {
         "tipo": 1,
@@ -266,10 +265,10 @@ let atkPokemon = [
         "id": 1,
         "ataque": [
             {
-                "nombre": "impactrueno"
+                "nombre": "Impactrueno"
             },
             {
-                "nombre": "atactrueno"
+                "nombre": "Atactrueno"
             },
             {
                 "nombre": "Rayo"
@@ -321,7 +320,7 @@ let atkPokemon = [
     }
 ]
 
-let filterEvo = [];
+
 
         // Función para llenar el combo de tipos de Pokémon al cargar la página
         function llenarCombo() {
@@ -351,7 +350,7 @@ let filterEvo = [];
                     pokemonsFilter.push(pokemonSelected);
                 }
             }
-
+            
             let pokemonCombo = document.getElementById("addpokemon")
             pokemonCombo.innerHTML = "";
 
@@ -364,7 +363,7 @@ let filterEvo = [];
             
             
             getEvolution ()
-           
+            getAtaque()           
         }
 
 function getEvolution (){
@@ -383,24 +382,22 @@ function getEvolution (){
          }
          
      }    
-     let evoCombo = document.getElementById("evo")
-     evoCombo.innerHTML = "";
+console.log("filtro de evolucion: ",filterEvolution)
+let evoCombo = document.getElementById("evo")
+evoCombo.innerHTML = "";
 
-     filterEvolution.forEach(function(item) {
-        item.evoluciones.forEach(function(evo){
-            var option = document.createElement("option");            
-            option.text = evo.nombre; 
-            option.id = evo.id;
+filterEvolution.forEach(function(item) {
+    item.evoluciones.forEach(function(evo){
+        var option = document.createElement("option");            
+        option.text = evo.nombre; 
+        option.id = evo.id;          
            
-           
-            evoCombo.appendChild(option);
-        })
-        
-     });
-     getAtk()
+        evoCombo.appendChild(option);
+        })        
+     });     
 }
-
-function getAtk(){
+//realiza la comparacion de tipo.id y el atk.id
+function getAtaque(){
     let typePoke  = document.getElementById("tipo");
     let setPoke = typePoke.options[typePoke.selectedIndex];
 
@@ -413,8 +410,8 @@ function getAtk(){
             filterAtk.push(atkList)
         }
     }
-
-    let atkCombo = document.getElementById("atk")
+    // agrega los ataques encontrados segun el filtro realizado
+    let atkCombo = document.getElementById("atk");
     atkCombo.innerHTML = "";
 
     filterAtk.forEach(function(item){
@@ -424,6 +421,27 @@ function getAtk(){
             atkOption.id = nameAtk.id; 
             atkCombo.appendChild(atkOption);
         })
-        
-    });
+    });    
+
+}   
+
+function guardar(){
+    getTipo();
+    console.log(setPoke)
+// let infoElement = document.getElementById("info");
+//     infoElement.textContent = `Tipo: ${setPoke.textContent}, Nombre del Pokémon: ${filterAtk.nombre}`;
+    let infoElement = document.getElementById("info");
+    infoElement.textContent = `Tipo: ${setPoke.textcontent}, Nombre del pokemon ${pokemonsFilter.nombre}` ;
+
+    // Aquí puedes hacer algo con el texto guardado, como mostrarlo en una alerta
+    alert("Información guardada:\n" + infoElement);
 }
+
+// intento agregar los datos de los pokemon en un parrafo.
+// mi meta para este paso es poder agregarlos a una tabla
+// de momento tengo que aprender como llamar una variable de una funcion
+// desde otra funcion 
+
+
+
+

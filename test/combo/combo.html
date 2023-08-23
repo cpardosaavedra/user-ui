@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="combo.js"></script>
-   <link rel="stylesheet" href="/user-ui/test/combo/combo.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/user-ui/test/combo/combo.css">
+    <title>Prueba pokemon</title>
 </head>
 <body>
     <div>
@@ -26,8 +26,13 @@
         </select>       
         
         <label for="ataque">Ataque: </label>
-        <select id="atk" onchange="getAtk()">
+        <select id="atk" onchange = "getAtaque()">
             <!--Las opciones de ataques se llenarán dinámicamente------->
-        </select>       
+        </select>   
+        
+        
+
+        <p id="info"></p>
+       <button onclick="guardar()">Save</button>
 </body>
 </html>
