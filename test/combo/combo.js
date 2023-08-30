@@ -265,12 +265,15 @@ let atkPokemon = [
         "id": 1,
         "ataque": [
             {
+                "id":1,
                 "nombre": "Impactrueno"
             },
             {
+                "id":2,
                 "nombre": "Atactrueno"
             },
             {
+                "id":3,
                 "nombre": "Rayo"
             }
         
@@ -361,7 +364,7 @@ let atkPokemon = [
                 pokemonCombo.appendChild(option);
             });  
             
-            
+            console.log(pokemonCombo)
             getEvolution ()
             getAtaque()           
         }
@@ -382,7 +385,7 @@ function getEvolution (){
          }
          
      }    
-console.log("filtro de evolucion: ",filterEvolution)
+
 let evoCombo = document.getElementById("evo")
 evoCombo.innerHTML = "";
 
@@ -393,9 +396,11 @@ filterEvolution.forEach(function(item) {
         option.id = evo.id;          
            
         evoCombo.appendChild(option);
-        })        
+        })   
+        console.log(evoCombo)     
      });     
 }
+
 //realiza la comparacion de tipo.id y el atk.id
 function getAtaque(){
     let typePoke  = document.getElementById("tipo");
@@ -403,45 +408,26 @@ function getAtaque(){
 
     let filterAtk = [];
 
-    for (var i = 0; i < atkPokemon.length; i++){
-        let atkList = atkPokemon[i];
-
-        if(setPoke.id == atkList.id ){
-            filterAtk.push(atkList)
+    atkPokemon.forEach(atkList => {
+        if (setPoke.id == atkList.id) {
+            filterAtk.push(atkList);
         }
-    }
+    });
+    
     // agrega los ataques encontrados segun el filtro realizado
     let atkCombo = document.getElementById("atk");
     atkCombo.innerHTML = "";
 
     filterAtk.forEach(function(item){
-        item.ataque.forEach(function(nameAtk){
+        item.ataque.forEach(function(addAtk){
             var atkOption = document.createElement("option");
-            atkOption.text = nameAtk.nombre;
-            atkOption.id = nameAtk.id; 
+            atkOption.text = addAtk.nombre;
+            atkOption.id = addAtk.id; 
             atkCombo.appendChild(atkOption);
+            console.log(atkCombo)
         })
     });    
 
 }   
-
-function guardar(){
-    getTipo();
-    console.log(setPoke)
-// let infoElement = document.getElementById("info");
-//     infoElement.textContent = `Tipo: ${setPoke.textContent}, Nombre del Pokémon: ${filterAtk.nombre}`;
-    let infoElement = document.getElementById("info");
-    infoElement.textContent = `Tipo: ${setPoke.textcontent}, Nombre del pokemon ${pokemonsFilter.nombre}` ;
-
-    // Aquí puedes hacer algo con el texto guardado, como mostrarlo en una alerta
-    alert("Información guardada:\n" + infoElement);
-}
-
-// intento agregar los datos de los pokemon en un parrafo.
-// mi meta para este paso es poder agregarlos a una tabla
-// de momento tengo que aprender como llamar una variable de una funcion
-// desde otra funcion 
-
-
 
 
