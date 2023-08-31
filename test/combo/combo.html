@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="combo.js"></script>
+    <link rel="stylesheet" href="../pokeInfo/css/estilos.css">
+    <title>Prueba pokemon</title>
+</head>
+<body>
+    <div>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" onchange="getTipo()">
+            <!-- Las opciones de tipos de Pokémon se llenarán dinámicamente al cargar la página -->
+        </select>
+    
+        <label for="pokemon">Pokémon:</label>
+        <select id="addpokemon" onchange="getEvolution()" >
+            <!-- Las opciones de Pokémon se llenarán dinámicamente según el tipo seleccionado -->
+        </select>
+    
+        <label for="evolucion">Evoluciones:</label>
+        <select id="evo">
+            <!-- Las opciones de evoluciones se llenarán dinámicamente según el Pokémon seleccionado -->
+        </select>       
+        
+        <label for="ataque">Ataque: </label>
+        <select id="atk" >
+            <!--Las opciones de ataques se llenarán dinámicamente------->
+        </select>   
+        
+        
+
+        <p id="info"></p>
+       <button onclick="guardar()">Save</button>
+</body>
+</html>
