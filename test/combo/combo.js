@@ -265,12 +265,15 @@ let atkPokemon = [
         "id": 1,
         "ataque": [
             {
+                "id":1,
                 "nombre": "Impactrueno"
             },
             {
+                "id":2,
                 "nombre": "Atactrueno"
             },
             {
+                "id":3,
                 "nombre": "Rayo"
             }
         
@@ -322,49 +325,49 @@ let atkPokemon = [
 
 
 
-        // Función para llenar el combo de tipos de Pokémon al cargar la página
-        function llenarCombo() {
-            var tipoCombo = document.getElementById("tipo");
+// Función para llenar el combo de tipos de Pokémon al cargar la página
+function llenarCombo() {
+    var tipoCombo = document.getElementById("tipo");
 
-            tipo.forEach(function(item) {
-                var option = document.createElement("option");
-                option.text = item.value;
-                option.id = item.id;
-                tipoCombo.appendChild(option);
-            });
+    tipo.forEach(function(item) {
+        var option = document.createElement("option");
+        option.text = item.value;
+        option.id = item.id;
+        tipoCombo.appendChild(option);
+    });
 
-            getTipo(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
+    getTipo(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
+}
+
+// Función para filtrar y llenar el combo de Pokémon según el tipo seleccionado
+function getTipo() {
+    let tipoCombo = document.getElementById("tipo");
+    let tipoSelected = tipoCombo.options[tipoCombo.selectedIndex];
+
+    let pokemonsFilter = [];
+
+    for (var i = 0; i < pokemon.length; i++) {
+        let pokemonSelected = pokemon[i];
+
+        if (tipoSelected.id == pokemonSelected.tipo) {
+            pokemonsFilter.push(pokemonSelected);
         }
+    }
+    
+    let pokemonCombo = document.getElementById("addpokemon")
+    pokemonCombo.innerHTML = "";
 
-        // Función para filtrar y llenar el combo de Pokémon según el tipo seleccionado
-        function getTipo() {
-            let tipoCombo = document.getElementById("tipo");
-            let tipoSelected = tipoCombo.options[tipoCombo.selectedIndex];
-
-            let pokemonsFilter = [];
-
-            for (var i = 0; i < pokemon.length; i++) {
-                let pokemonSelected = pokemon[i];
-
-                if (tipoSelected.id == pokemonSelected.tipo) {
-                    pokemonsFilter.push(pokemonSelected);
-                }
-            }
-            
-            let pokemonCombo = document.getElementById("addpokemon")
-            pokemonCombo.innerHTML = "";
-
-            pokemonsFilter.forEach(function(item) {
-                var option = document.createElement("option");
-                option.text = item.nombre;
-                option.id = item.id;
-                pokemonCombo.appendChild(option);
-            });  
-            
-            
-            getEvolution ()
-            getAtaque()           
-        }
+    pokemonsFilter.forEach(function(item) {
+        var option = document.createElement("option");
+        option.text = item.nombre;
+        option.id = item.id;
+        pokemonCombo.appendChild(option);
+    });  
+    
+    console.log(pokemonCombo)
+    getEvolution ()
+    getAtaque()           
+}
 
 function getEvolution (){
      // Filtro de evoluciones 
@@ -382,7 +385,6 @@ function getEvolution (){
          }
          
      }    
-
 let evoCombo = document.getElementById("evo")
 evoCombo.innerHTML = "";
 
@@ -393,9 +395,11 @@ filterEvolution.forEach(function(item) {
         option.id = evo.id;          
            
         evoCombo.appendChild(option);
-        })        
+        })   
+        console.log(evoCombo)     
      });     
 }
+
 //realiza la comparacion de tipo.id y el atk.id
 function getAtaque(){
     let typePoke  = document.getElementById("tipo");
@@ -404,31 +408,43 @@ function getAtaque(){
     let filterAtk = [];
 
     for (var i = 0; i < atkPokemon.length; i++){
-        let atkList = atkPokemon[i];               
+        let atkList = atkPokemon[i];
 
         if(setPoke.id == atkList.id ){
             filterAtk.push(atkList)
         }
-       
     }
     // agrega los ataques encontrados segun el filtro realizado
     let atkCombo = document.getElementById("atk");
     atkCombo.innerHTML = "";
 
     filterAtk.forEach(function(item){
-        item.ataque.forEach(function(nameAtk){
+        item.ataque.forEach(function(addAtk){
             var atkOption = document.createElement("option");
-            atkOption.text = nameAtk.nombre;
-            atkOption.id = nameAtk.id; 
+            atkOption.text = addAtk.nombre;
+            atkOption.id = addAtk.id; 
             atkCombo.appendChild(atkOption);
+            console.log(atkCombo)
         })
        
     });    
 
 }   
 
+function guardar(){
+    getTipo();
+    console.log(setPoke)
+// let infoElement = document.getElementById("info");
+//     infoElement.textContent = `Tipo: ${setPoke.textContent}, Nombre del Pokémon: ${filterAtk.nombre}`;
+    let infoElement = document.getElementById("info");
+    infoElement.textContent = `Tipo: ${setPoke.textcontent}, Nombre del pokemon ${pokemonsFilter.nombre}` ;
 
+    // Aquí puedes hacer algo con el texto guardado, como mostrarlo en una alerta
+    alert("Información guardada:\n" + infoElement);
+}
 
-
-
+// intento agregar los datos de los pokemon en un parrafo.
+// mi meta para este paso es poder agregarlos a una tabla
+// de momento tengo que aprender como llamar una variable de una funcion
+// desde otra funcion 
 
