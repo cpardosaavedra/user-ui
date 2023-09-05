@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", llenarCombo);
 
 let tipo = [
     {
+        "id": 0,
+        "value": ""
+    },{
         "id": 1, 
         "value": "electrico"
     }, 
@@ -260,7 +263,7 @@ let evolution = [
 }
 ];
 
-let atkPokemon = [
+let atkPokemon = [    
     {
         "id": 1,
         "ataque": [
@@ -423,8 +426,7 @@ function getAtaque(){
             var atkOption = document.createElement("option");
             atkOption.text = addAtk.nombre;
             atkOption.id = addAtk.id; 
-            atkCombo.appendChild(atkOption);
-            console.log(atkCombo)
+            atkCombo.appendChild(atkOption);            
         })
     });    
 
