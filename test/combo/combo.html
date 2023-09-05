@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="combo.js"></script>
-    <link rel="stylesheet" href="../pokeInfo/css/estilos.css">
+    <link rel="stylesheet" href="../combo/combo.css">
     <title>Prueba pokemon</title>
 </head>
 <body>
@@ -28,11 +28,23 @@
         <label for="ataque">Ataque: </label>
         <select id="atk" >
             <!--Las opciones de ataques se llenarán dinámicamente------->
-        </select>   
-        
-        
-
+        </select>  
         <p id="info"></p>
-       <button onclick="guardar()">Save</button>
+       <button onclick="guardar()">Mostrar</button>
+
+       <table class="tabla">
+            <tr class="texto">
+                <th>Tipo</th>
+                <th>Pokémon</th>
+                <th>Evoluciones</th>
+                <th>Ataques</th>
+            </tr>
+            <tr class="texto">
+                <td>agua</td>
+                <td>vaporeon</td>
+                <td>eevee</td>
+                <td>Hidrobomba</td>
+            </tr>
+       </table>
 </body>
 </html>

@@ -1,0 +1,17 @@
+body{
+    background-image:url(/user-ui/test/combo/IMG/pokeball.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+ }
+ .texto{
+     text-align: center;
+     color: #fff;    
+    
+ }
+ 
+ .tabla{
+    margin-top: 25px;
+    border: 1px solid black;
+ }
+
