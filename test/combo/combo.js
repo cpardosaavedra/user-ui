@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", llenarCombo);
 
 let tipo = [
     {
+        "id":0,
+        "value": ""
+    },
+    {
         "id": 1, 
         "value": "electrico"
     }, 
@@ -443,8 +447,5 @@ function guardar(){
     alert("Información guardada:\n" + infoElement);
 }
 
-// intento agregar los datos de los pokemon en un parrafo.
-// mi meta para este paso es poder agregarlos a una tabla
-// de momento tengo que aprender como llamar una variable de una funcion
-// desde otra funcion 
+
 
