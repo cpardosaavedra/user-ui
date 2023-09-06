@@ -2,10 +2,7 @@
 document.addEventListener("DOMContentLoaded", llenarCombo);
 
 let tipo = [
-    {
-        "id":0,
-        "value": ""
-    },
+    
     {
         "id": 1, 
         "value": "electrico"
@@ -333,14 +330,25 @@ let atkPokemon = [
 function llenarCombo() {
     var tipoCombo = document.getElementById("tipo");
 
+    // Limpia el combo de tipos
+    tipoCombo.innerHTML = '<option value="" selected>Selecciona un tipo</option>';
+
     tipo.forEach(function(item) {
         var option = document.createElement("option");
         option.text = item.value;
         option.id = item.id;
         tipoCombo.appendChild(option);
     });
-
-    getTipo(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
+    //Limpia los otros combos
+    limpiarCombo("addpokemon");
+    limpiarCombo("evo");
+    limpiarCombo("atk");
+    // getTipo(); // Llenar el combo de Pokémon una vez que se han cargado los tipos
+}
+// Función para limpiar un combo
+function limpiarCombo(idCombo) {
+    var combo = document.getElementById(idCombo);
+    combo.innerHTML = "";
 }
 
 // Función para filtrar y llenar el combo de Pokémon según el tipo seleccionado
@@ -348,15 +356,24 @@ function getTipo() {
     let tipoCombo = document.getElementById("tipo");
     let tipoSelected = tipoCombo.options[tipoCombo.selectedIndex];
 
-    let pokemonsFilter = [];
 
-    for (var i = 0; i < pokemon.length; i++) {
-        let pokemonSelected = pokemon[i];
+    if(tipoSelected ===""){
+        // Si no se ha seleccionado un tipo, limpiar los otros combos
+        limpiarCombo("addpokemon");
+        limpiarCombo("evo");
+        limpiarCombo("atk");
+    }else{
+       var pokemonsFilter = [];
 
-        if (tipoSelected.id == pokemonSelected.tipo) {
-            pokemonsFilter.push(pokemonSelected);
+        for (var i = 0; i < pokemon.length; i++) {
+            let pokemonSelected = pokemon[i];
+    
+            if (tipoSelected.id == pokemonSelected.tipo) {
+                pokemonsFilter.push(pokemonSelected);
+            }
         }
     }
+    
     
     let pokemonCombo = document.getElementById("addpokemon")
     pokemonCombo.innerHTML = "";
@@ -367,28 +384,25 @@ function getTipo() {
         option.id = item.id;
         pokemonCombo.appendChild(option);
     });  
-    
-    console.log(pokemonCombo)
-    getEvolution ()
-    getAtaque()           
+    getEvolution();
+    getAtaque();       
 }
 
-function getEvolution (){
+function getEvolution(){
      // Filtro de evoluciones 
-     let getPokemon = document.getElementById("addpokemon");
-     let pokemonSet = getPokemon.options[getPokemon.selectedIndex];
+let getPokemon = document.getElementById("addpokemon");
+let pokemonSet = getPokemon.options[getPokemon.selectedIndex];
 
-     let filterEvolution = [];
+let filterEvolution = [];
 
-     for(var i = 0; i < evolution.length; i++){
-         let evoList = evolution[i];
+for(var i = 0; i < evolution.length; i++){
+    let evoList = evolution[i];
 
-         if (pokemonSet.id == evoList.id){                    
-             filterEvolution.push(evoList)
-             
-         }
-         
-     }    
+    if (pokemonSet.id == evoList.id){                    
+        filterEvolution.push(evoList)             
+    }
+    
+}    
 let evoCombo = document.getElementById("evo")
 evoCombo.innerHTML = "";
 
@@ -396,11 +410,9 @@ filterEvolution.forEach(function(item) {
     item.evoluciones.forEach(function(evo){
         var option = document.createElement("option");            
         option.text = evo.nombre; 
-        option.id = evo.id;          
-           
+        option.id = evo.id;               
         evoCombo.appendChild(option);
-        })   
-        console.log(evoCombo)     
+        })           
      });     
 }
 
@@ -427,25 +439,100 @@ function getAtaque(){
             var atkOption = document.createElement("option");
             atkOption.text = addAtk.nombre;
             atkOption.id = addAtk.id; 
-            atkCombo.appendChild(atkOption);
-            console.log(atkCombo)
-        })
-       
+            atkCombo.appendChild(atkOption);          
+        })       
     });    
-
 }   
 
-function guardar(){
-    getTipo();
-    console.log(setPoke)
-// let infoElement = document.getElementById("info");
-//     infoElement.textContent = `Tipo: ${setPoke.textContent}, Nombre del Pokémon: ${filterAtk.nombre}`;
-    let infoElement = document.getElementById("info");
-    infoElement.textContent = `Tipo: ${setPoke.textcontent}, Nombre del pokemon ${pokemonsFilter.nombre}` ;
+function crearTabla() {
+   
+     // Obtener los valores seleccionados en los combos
+     var tipoCombo = document.getElementById("tipo");
+     var tipoSeleccionado = tipoCombo.options[tipoCombo.selectedIndex].textContent;
+    
+//verifica si se a seleccionado algun tipo
+if(tipoSeleccionado === "Selecciona un tipo"){
+    alert("Debes seleccionar un tipo de Pokémon para continuar.");
+    return;
+   }
 
-    // Aquí puedes hacer algo con el texto guardado, como mostrarlo en una alerta
-    alert("Información guardada:\n" + infoElement);
-}
-
-
-
+     var pokemonCombo = document.getElementById("addpokemon");
+     var pokemonSeleccionado = pokemonCombo.options[pokemonCombo.selectedIndex].textContent;
+ 
+     var evoCombo = document.getElementById("evo");
+     var evoSeleccionado = evoCombo.options[evoCombo.selectedIndex].textContent;
+ 
+     var atkCombo = document.getElementById("atk");
+     var atkSeleccionado = atkCombo.options[atkCombo.selectedIndex].textContent;
+ 
+     // Crear un elemento de tabla
+     var tabla = document.createElement("table");
+ 
+     // Crear un elemento de encabezado de tabla (thead)
+     var encabezado = document.createElement("thead");
+ 
+     // Crear una fila de encabezado (tr)
+     var filaEncabezado = document.createElement("tr");
+ 
+     // Crear celdas de encabezado (th)
+     var encabezadoTipo = document.createElement("th");
+     var encabezadoPokemon = document.createElement("th");
+     var encabezadoEvo = document.createElement("th");
+     var encabezadoAtk = document.createElement("th");
+ 
+     // Establecer el texto de las celdas de encabezado
+     encabezadoTipo.textContent = "Tipo";
+     encabezadoPokemon.textContent = "Pokémon";
+     encabezadoEvo.textContent = "Evolución";
+     encabezadoAtk.textContent = "Ataque";
+ 
+     // Agregar las celdas de encabezado a la fila de encabezado
+     filaEncabezado.appendChild(encabezadoTipo);
+     filaEncabezado.appendChild(encabezadoPokemon);
+     filaEncabezado.appendChild(encabezadoEvo);
+     filaEncabezado.appendChild(encabezadoAtk);
+ 
+     // Agregar la fila de encabezado al elemento de encabezado de tabla
+     encabezado.appendChild(filaEncabezado);
+ 
+     // Crear un elemento de cuerpo de tabla (tbody)
+     var cuerpoTabla = document.createElement("tbody");
+ 
+     // Crear una fila de datos (tr)
+     var filaDatos = document.createElement("tr");
+ 
+     // Crear celdas de datos (td)
+     var datoTipo = document.createElement("td");
+     var datoPokemon = document.createElement("td");
+     var datoEvo = document.createElement("td");
+     var datoAtk = document.createElement("td");
+ 
+     // Establecer el texto de las celdas de datos con los valores seleccionados
+     datoTipo.textContent = tipoSeleccionado;
+     datoPokemon.textContent = pokemonSeleccionado;
+     datoEvo.textContent = evoSeleccionado;
+     datoAtk.textContent = atkSeleccionado;
+ 
+     // Agregar las celdas de datos a la fila de datos
+     filaDatos.appendChild(datoTipo);
+     filaDatos.appendChild(datoPokemon);
+     filaDatos.appendChild(datoEvo);
+     filaDatos.appendChild(datoAtk);
+ 
+     // Agregar la fila de datos al cuerpo de la tabla
+     cuerpoTabla.appendChild(filaDatos);
+ 
+     // Agregar el encabezado y el cuerpo a la tabla
+     tabla.appendChild(encabezado);
+     tabla.appendChild(cuerpoTabla);
+ 
+     // Agregar la tabla al contenedor en la página
+     var tablaContainer = document.getElementById("tablaContainer");
+ 
+     // Si ya existe una tabla en el contenedor, reemplazarla
+     if (tablaContainer.firstChild) {
+         tablaContainer.removeChild(tablaContainer.firstChild);
+     }
+ 
+     tablaContainer.appendChild(tabla);
+   }
