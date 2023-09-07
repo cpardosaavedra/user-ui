@@ -6,12 +6,12 @@ body{
  }
  .texto{
      text-align: center;
-     color: #fff;    
-    
+     color: #fff;   
+     background-image: url(/user-ui/test/combo/IMG/pikachu.jpg);    
  }
  
- .tabla{
-    margin-top: 25px;
-    border: 1px solid black;
+ #tablaContainer{
+    margin-top: 25px;    
+    text-align: center;
  }
 

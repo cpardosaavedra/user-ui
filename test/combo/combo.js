@@ -5,73 +5,74 @@ let tipo = [
     
     {
         "id": 1, 
-        "value": "electrico"
+        "value": "ELECTRICO"
     }, 
     {
         "id": 2, 
-        "value": "tierra"
+        "value": "TIERRA"
     }, 
     {
         "id": 3, 
-        "value": "fuego"
+        "value": "FUEGO"
     }, 
     {
         "id": 4, 
-        "value": "agua"
+        "value": "AGUA"
     }
 ];
 
 let pokemon = [
     {
         "tipo": 1,
-        "nombre": "pikachu",
-        "id": 1       
+        "nombre": "PIKACHU",
+        "id": 1,
+        "imagen": "/user-ui/test/combo/IMG/pikachu.jpg"
     },
     {
         "tipo": 1,
-        "nombre": "voltorb",
+        "nombre": "VOLTORB",
         "id": 2         
     },
     {
         "tipo": 1,
-        "nombre": "magnamite",         
+        "nombre": "MAGNAMITE",         
         "id": 3
     },
     {
         "tipo": 1,
-        "nombre": "zapdos",        
+        "nombre": "ZAPDOS",        
         "id": 4
     },
 
     {
         "tipo": 2,
-        "nombre": "sandshrew",  
+        "nombre": "SANDSHREW",  
         "id": 5     
     },
     {
         "tipo": 2,
-        "nombre": "rhyhorn",
+        "nombre": "RHYHORN",
         "id": 6
     },
     {
         "tipo": 2,
-        "nombre": "diglet",
+        "nombre": "DIGLET",
         "id": 7
     },
     {
         "tipo": 2,
-        "nombre": "cubone" ,  
+        "nombre": "CUBONE" ,  
         "id": 8      
     },
 
     {
         "tipo": 3,
-        "nombre": "vulpix",   
+        "nombre": "VULPIX",   
         "id": 9     
     },
     {
         "tipo": 3,
-        "nombre": "growlithe",   
+        "nombre": "GROWLITHE",   
         "id": 10      
     },
     {
@@ -81,28 +82,28 @@ let pokemon = [
     },
     {
         "tipo": 3,
-        "nombre": "torchic",    
+        "nombre": "TORCHIC",    
         "id": 12     
     },
     
     {
         "tipo": 4,
-        "nombre": "squirtle",  
+        "nombre": "SQUIRTLE",  
         "id": 13       
     },
     {
         "tipo": 4,
-        "nombre": "totodile",  
+        "nombre": "TOTODILE",  
         "id": 14       
     },
     {
         "tipo": 4,
-        "nombre": "magikarp",  
+        "nombre": "MAGIKARP",  
         "id": 15     
     },
     {
         "tipo": 4,
-        "nombre": "psyduck",   
+        "nombre": "PSYDUCK",   
         "id": 16    
     },
 ]
@@ -112,17 +113,17 @@ let evolution = [
         "id": 1,              
         "evoluciones": [
             {
-                "nombre": "Pichu"
+                "nombre": "PICHU"
             },
             {
-                "nombre": "Raichu"
+                "nombre": "RAICHU"
             },         
         ]
     },{
         "id": 2,        
         "evoluciones": [
         {
-            "nombre": "electrode",            
+            "nombre": "ELECTRODE",            
         },               
     ]
 },
@@ -130,10 +131,10 @@ let evolution = [
     "id": 3,    
     "evoluciones": [
         {
-            "nombre": "magnetone"
+            "nombre": "MAGNETONE"
         },
         {
-            "nombre": "magnezone"
+            "nombre": "MAGNEZONE"
         },             
     ]
 },
@@ -141,14 +142,14 @@ let evolution = [
     "id": 4,        
     "evoluciones": [
         {
-            "nombre": "zapdos",           
+            "nombre": "ZAPDOS",           
         },
     ]
 },{
     "id": 5,
     "evoluciones" : [
         {
-            "nombre": "Sandslash"
+            "nombre": "SANDSLASH"
         }
     ]
 },
@@ -156,7 +157,7 @@ let evolution = [
     "id": 6,
     "evoluciones" : [
         {
-            "nombre": "Rydhon"
+            "nombre": "RYDHON"
         }
     ]
 }
@@ -165,7 +166,7 @@ let evolution = [
     "id": 7,
     "evoluciones" : [
         {
-            "nombre": "Dugtrio"
+            "nombre": "DUGTRIO"
         }
     ]
 },
@@ -173,10 +174,10 @@ let evolution = [
     "id": 8,
     "evoluciones" : [
         {
-            "nombre": "Marowak"
+            "nombre": "MAROWAK"
         },
         {
-            "nombre": "Marowak-alola"
+            "nombre": "MAROWAK-ALOLA"
         }
     ]
 },
@@ -184,10 +185,10 @@ let evolution = [
     "id": 9,
     "evoluciones" : [
         {
-            "nombre": "Ninetales"
+            "nombre": "NINETALES"
         },
         {
-            "nombre": "Ninetales-Alola"
+            "nombre": "NINETALES-ALOLA"
         }
     ]
 },
@@ -195,7 +196,7 @@ let evolution = [
     "id": 10,
     "evoluciones" : [
         {
-            "nombre": "Arcanine"
+            "nombre": "ARCANINE"
         }
     ]
 },
@@ -203,10 +204,10 @@ let evolution = [
     "id": 11,
     "evoluciones" : [
         {
-            "nombre": "Charmeleon"
+            "nombre": "CHARMELEON"
         },
         {
-            "nombre": "Charizard"
+            "nombre": "CHARIZARD"
         }
     ]
 },
@@ -214,10 +215,10 @@ let evolution = [
     "id": 12,
     "evoluciones" : [
         {
-            "nombre": "Combusken"
+            "nombre": "COMBUSKEN"
         },
         {
-            "nombre": "Blaziken"
+            "nombre": "BLAZIKEN"
         }
     ]
 },
@@ -225,10 +226,10 @@ let evolution = [
     "id": 13,
     "evoluciones" : [
         {
-            "nombre": "Wartortle"
+            "nombre": "WARTORTLE"
         },
         {
-            "nombre": "Blastoise"
+            "nombre": "BLASTOISE"
         }
     ]
 },
@@ -236,10 +237,10 @@ let evolution = [
     "id": 14,
     "evoluciones" : [
         {
-            "nombre": "Croconaw"
+            "nombre": "CROCONAW"
         },
         {
-            "nombre": "Feraligart"
+            "nombre": "FERALIGART"
         }
     ]
 },
@@ -247,7 +248,7 @@ let evolution = [
     "id": 15,
     "evoluciones" : [
         {
-            "nombre": "Gyarados"
+            "nombre": "GYARADOS"
         }
     ]
 },
@@ -255,7 +256,7 @@ let evolution = [
     "id": 16,
     "evoluciones" : [
         {
-            "nombre": "Golduck"
+            "nombre": "GOLDUCK"
         }
     ]
 }
@@ -267,15 +268,15 @@ let atkPokemon = [
         "ataque": [
             {
                 "id":1,
-                "nombre": "Impactrueno"
+                "nombre": "IMPACTRUENO"
             },
             {
                 "id":2,
-                "nombre": "Atactrueno"
+                "nombre": "ATACTRUENO"
             },
             {
                 "id":3,
-                "nombre": "Rayo"
+                "nombre": "RAYO"
             }
         
         ]
@@ -284,13 +285,13 @@ let atkPokemon = [
         "id": 2,
         "ataque" : [
             {
-                "nombre" : "golpe roca",
+                "nombre" : "GOLPE ROCA",
             },
             {
-                "nombre" : "roca afilada",
+                "nombre" : "ROCA AFILADA",
             },
             {
-                "nombre" : "tormenta de arena"
+                "nombre" : "TORMENTA DE ARENA"
             }
         ]
     },
@@ -298,13 +299,13 @@ let atkPokemon = [
         "id": 3,
         "ataque" : [
             {
-                "nombre" : "Lanza llamas",
+                "nombre" : "LANZA LLAMAS",
             },
             {
-                "nombre" : "Giro fuego",
+                "nombre" : "GIRO FUEGO",
             },
             {
-                "nombre" : "tormenta de arena"
+                "nombre" : "TORMENTA ARENA"
             }
         ]
     },
@@ -312,13 +313,13 @@ let atkPokemon = [
         "id": 4,
         "ataque" : [
             {
-                "nombre" : "Chorro de agua",
+                "nombre" : "CHORRO DE AGUA",
             },
             {
-                "nombre" : "pistola de agua",
+                "nombre" : "PISTOLA DE AGUA",
             },
             {
-                "nombre" : "Hidrobomba"
+                "nombre" : "HIDROBOMBA"
             }
         ]
     }
@@ -479,19 +480,22 @@ if(tipoSeleccionado === "Selecciona un tipo"){
      var encabezadoPokemon = document.createElement("th");
      var encabezadoEvo = document.createElement("th");
      var encabezadoAtk = document.createElement("th");
+     var encabezadoImagen = document.createElement("th"); // Nueva celda para la imagen
  
      // Establecer el texto de las celdas de encabezado
-     encabezadoTipo.textContent = "Tipo";
-     encabezadoPokemon.textContent = "Pokémon";
-     encabezadoEvo.textContent = "Evolución";
-     encabezadoAtk.textContent = "Ataque";
+     encabezadoTipo.textContent = "TIPO";
+     encabezadoPokemon.textContent = "POKÉMON";
+     encabezadoEvo.textContent = "EVOLUCIÓN";
+     encabezadoAtk.textContent = "ATAQUE";
+     encabezadoImagen.textContent = "IMAGEN"; // Texto para la celda de imagen
  
      // Agregar las celdas de encabezado a la fila de encabezado
      filaEncabezado.appendChild(encabezadoTipo);
      filaEncabezado.appendChild(encabezadoPokemon);
      filaEncabezado.appendChild(encabezadoEvo);
      filaEncabezado.appendChild(encabezadoAtk);
- 
+     filaEncabezado.appendChild(encabezadoImagen); // Agregar la celda de imagen a la fila de encabezado
+     
      // Agregar la fila de encabezado al elemento de encabezado de tabla
      encabezado.appendChild(filaEncabezado);
  
@@ -512,13 +516,29 @@ if(tipoSeleccionado === "Selecciona un tipo"){
      datoPokemon.textContent = pokemonSeleccionado;
      datoEvo.textContent = evoSeleccionado;
      datoAtk.textContent = atkSeleccionado;
- 
+     var datoImagen = document.createElement("td"); // Nueva celda para la imagen
+     
+     datoTipo.textContent = tipoSeleccionado;
+    datoPokemon.textContent = pokemonSeleccionado;
+    datoEvo.textContent = evoSeleccionado;
+    datoAtk.textContent = atkSeleccionado;
+
+    // Crear un elemento de imagen para la celda de imagen
+    var imagen = document.createElement("img");
+    imagen.src = "/user-ui/test/combo/IMG/pikachu.jpg"; // Ruta de la imagen de Pikachu
+    imagen.alt = "Pikachu"; // Texto alternativo para la imagen (accesibilidad)
+    imagen.width = 200; // Ancho de la imagen (ajusta según tus necesidades)
+
+     // Agregar la imagen a la celda de imagen
+     datoImagen.appendChild(imagen);
+
      // Agregar las celdas de datos a la fila de datos
      filaDatos.appendChild(datoTipo);
      filaDatos.appendChild(datoPokemon);
      filaDatos.appendChild(datoEvo);
      filaDatos.appendChild(datoAtk);
- 
+     filaDatos.appendChild(datoImagen); // Agregar la celda de imagen a la fila de datos
+
      // Agregar la fila de datos al cuerpo de la tabla
      cuerpoTabla.appendChild(filaDatos);
  
