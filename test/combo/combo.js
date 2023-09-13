@@ -26,7 +26,7 @@ let pokemon = [
         "tipo": 1,
         "nombre": "PIKACHU",
         "id": 1,
-        "imagen": "/user-ui/test/combo/IMG/pikachu.jpg"
+        "imagen": "pikachu.jpg"
     },
     {
         "tipo": 1,
@@ -524,9 +524,13 @@ if(tipoSeleccionado === "Selecciona un tipo"){
     datoEvo.textContent = evoSeleccionado;
     datoAtk.textContent = atkSeleccionado;
 
+    let rutaImg = "../../IMG/";
+    let extensionImg = ".jpg";
     // Crear un elemento de imagen para la celda de imagen
     var imagen = document.createElement("img");
-    imagen.src = "/user-ui/test/combo/IMG/pikachu.jpg"; // Ruta de la imagen de Pikachu
+    let imagenPokemon = rutaImg + pokemonSeleccionado + extensionImg;
+    console.log(imagen);
+    imagen.src = imagenPokemon; // Ruta de la imagen de Pikachu
     imagen.alt = "Pikachu"; // Texto alternativo para la imagen (accesibilidad)
     imagen.width = 200; // Ancho de la imagen (ajusta según tus necesidades)
 
