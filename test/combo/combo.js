@@ -510,13 +510,14 @@ if(tipoSeleccionado === "Selecciona un tipo"){
      var datoPokemon = document.createElement("td");
      var datoEvo = document.createElement("td");
      var datoAtk = document.createElement("td");
+     var datoImagen = document.createElement("td"); // Nueva celda para la imagen
  
      // Establecer el texto de las celdas de datos con los valores seleccionados
      datoTipo.textContent = tipoSeleccionado;
      datoPokemon.textContent = pokemonSeleccionado;
      datoEvo.textContent = evoSeleccionado;
      datoAtk.textContent = atkSeleccionado;
-     var datoImagen = document.createElement("td"); // Nueva celda para la imagen
+    
      
      datoTipo.textContent = tipoSeleccionado;
     datoPokemon.textContent = pokemonSeleccionado;
