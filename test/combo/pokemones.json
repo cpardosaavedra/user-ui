@@ -1,0 +1,323 @@
+let tipo = [
+    
+    {
+        "id": 1, 
+        "value": "ELECTRICO"
+    }, 
+    {
+        "id": 2, 
+        "value": "TIERRA"
+    }, 
+    {
+        "id": 3, 
+        "value": "FUEGO"
+    }, 
+    {
+        "id": 4, 
+        "value": "AGUA"
+    }
+];
+
+let pokemon = [
+    {
+        "tipo": 1,
+        "nombre": "PIKACHU",
+        "id": 1,
+        "imagen": "pikachu.jpg"
+    },
+    {
+        "tipo": 1,
+        "nombre": "VOLTORB",
+        "id": 2         
+    },
+    {
+        "tipo": 1,
+        "nombre": "MAGNAMITE",         
+        "id": 3
+    },
+    {
+        "tipo": 1,
+        "nombre": "ZAPDOS",        
+        "id": 4
+    },
+
+    {
+        "tipo": 2,
+        "nombre": "SANDSHREW",  
+        "id": 5     
+    },
+    {
+        "tipo": 2,
+        "nombre": "RHYHORN",
+        "id": 6
+    },
+    {
+        "tipo": 2,
+        "nombre": "DIGLET",
+        "id": 7
+    },
+    {
+        "tipo": 2,
+        "nombre": "CUBONE" ,  
+        "id": 8      
+    },
+
+    {
+        "tipo": 3,
+        "nombre": "VULPIX",   
+        "id": 9     
+    },
+    {
+        "tipo": 3,
+        "nombre": "GROWLITHE",   
+        "id": 10      
+    },
+    {
+        "tipo": 3,
+        "nombre": "CHARMANDER" ,  
+        "id": 11     
+    },
+    {
+        "tipo": 3,
+        "nombre": "TORCHIC",    
+        "id": 12     
+    },
+    
+    {
+        "tipo": 4,
+        "nombre": "SQUIRTLE",  
+        "id": 13       
+    },
+    {
+        "tipo": 4,
+        "nombre": "TOTODILE",  
+        "id": 14       
+    },
+    {
+        "tipo": 4,
+        "nombre": "MAGIKARP",  
+        "id": 15     
+    },
+    {
+        "tipo": 4,
+        "nombre": "PSYDUCK",   
+        "id": 16    
+    },
+]
+
+let evolution = [
+    {
+        "id": 1,              
+        "evoluciones": [
+            {
+                "nombre": "PICHU"
+            },
+            {
+                "nombre": "RAICHU"
+            },         
+        ]
+    },{
+        "id": 2,        
+        "evoluciones": [
+        {
+            "nombre": "ELECTRODE",            
+        },               
+    ]
+},
+{
+    "id": 3,    
+    "evoluciones": [
+        {
+            "nombre": "MAGNETONE"
+        },
+        {
+            "nombre": "MAGNEZONE"
+        },             
+    ]
+},
+{
+    "id": 4,        
+    "evoluciones": [
+        {
+            "nombre": "ZAPDOS",           
+        },
+    ]
+},{
+    "id": 5,
+    "evoluciones" : [
+        {
+            "nombre": "SANDSLASH"
+        }
+    ]
+},
+{
+    "id": 6,
+    "evoluciones" : [
+        {
+            "nombre": "RYDHON"
+        }
+    ]
+}
+,
+{
+    "id": 7,
+    "evoluciones" : [
+        {
+            "nombre": "DUGTRIO"
+        }
+    ]
+},
+{
+    "id": 8,
+    "evoluciones" : [
+        {
+            "nombre": "MAROWAK"
+        },
+        {
+            "nombre": "MAROWAK-ALOLA"
+        }
+    ]
+},
+{
+    "id": 9,
+    "evoluciones" : [
+        {
+            "nombre": "NINETALES"
+        },
+        {
+            "nombre": "NINETALES-ALOLA"
+        }
+    ]
+},
+{
+    "id": 10,
+    "evoluciones" : [
+        {
+            "nombre": "ARCANINE"
+        }
+    ]
+},
+{
+    "id": 11,
+    "evoluciones" : [
+        {
+            "nombre": "CHARMELEON"
+        },
+        {
+            "nombre": "CHARIZARD"
+        }
+    ]
+},
+{
+    "id": 12,
+    "evoluciones" : [
+        {
+            "nombre": "COMBUSKEN"
+        },
+        {
+            "nombre": "BLAZIKEN"
+        }
+    ]
+},
+{
+    "id": 13,
+    "evoluciones" : [
+        {
+            "nombre": "WARTORTLE"
+        },
+        {
+            "nombre": "BLASTOISE"
+        }
+    ]
+},
+{
+    "id": 14,
+    "evoluciones" : [
+        {
+            "nombre": "CROCONAW"
+        },
+        {
+            "nombre": "FERALIGART"
+        }
+    ]
+},
+{
+    "id": 15,
+    "evoluciones" : [
+        {
+            "nombre": "GYARADOS"
+        }
+    ]
+},
+{
+    "id": 16,
+    "evoluciones" : [
+        {
+            "nombre": "GOLDUCK"
+        }
+    ]
+}
+];
+
+let atkPokemon = [
+    {
+        "id": 1,
+        "ataque": [
+            {
+                "id":1,
+                "nombre": "IMPACTRUENO"
+            },
+            {
+                "id":2,
+                "nombre": "ATACTRUENO"
+            },
+            {
+                "id":3,
+                "nombre": "RAYO"
+            }
+        
+        ]
+    },
+    {
+        "id": 2,
+        "ataque" : [
+            {
+                "nombre" : "GOLPE ROCA",
+            },
+            {
+                "nombre" : "ROCA AFILADA",
+            },
+            {
+                "nombre" : "TORMENTA DE ARENA"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "ataque" : [
+            {
+                "nombre" : "LANZA LLAMAS",
+            },
+            {
+                "nombre" : "GIRO FUEGO",
+            },
+            {
+                "nombre" : "TORMENTA ARENA"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "ataque" : [
+            {
+                "nombre" : "CHORRO DE AGUA",
+            },
+            {
+                "nombre" : "PISTOLA DE AGUA",
+            },
+            {
+                "nombre" : "HIDROBOMBA"
+            }
+        ]
+    }
+]
